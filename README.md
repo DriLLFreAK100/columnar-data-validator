@@ -13,9 +13,8 @@ Below are the areas of emphasis:
 
 ---
 
-```
 ![Flowchart](./Validation_Engine_Pipeline.svg)
-```
+
 
 
 ### Validation Rules
