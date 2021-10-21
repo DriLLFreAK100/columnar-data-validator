@@ -1,0 +1,56 @@
+{
+  "id": "d40c4968-b47e-4097-9d76-942bd7b5c66f",
+  "name": "Sample Rule",
+  "rulesets": [
+    {
+      "ordinal": 0,
+      "rules": [
+        {
+          "rule": "NotEmpty",
+          "severity": "Error"
+        },
+        {
+          "rule": "IsString",
+          "severity": "Error"
+        },
+        {
+          "rule": "IsString",
+          "severity": "Warning",
+          "params": {
+            "maxSize": 400
+          }
+        }
+      ]
+    },
+    {
+      "ordinal": 1,
+      "rules": [
+        {
+          "rule": "NotEmpty",
+          "severity": "Error"
+        },
+        {
+          "rule": "IsLong",
+          "severity": "Error"
+        }
+      ]
+    },
+    {
+      "ordinal": 2,
+      "rules": [
+        {
+          "rule": "NotEmpty",
+          "severity": "Error"
+        },
+        {
+          "rule": "IsString",
+          "severity": "Error",
+          "params": {
+            "minSize": 2,
+            "maxSize": 3
+          }
+        }
+      ]
+    }
+  ]
+}
