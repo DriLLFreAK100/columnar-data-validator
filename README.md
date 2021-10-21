@@ -1,6 +1,6 @@
 # Columnar Data Validator
 
-This mini project is aimed at consolidating a generic Data Validation specification for columnar data, e.g. CSV, Xlsx, etc. , open to be implemented in any language.
+This mini project is aimed at consolidating a generic Data Validation specification for columnar data, e.g. CSV, Xlsx, etc., open to be implemented in any language.
 
 Below are the areas of emphasis:
 
@@ -20,19 +20,19 @@ Find it in *./Validation_Engine_Pipeline.drawio*
 
 ---
 
-| Name       | Description                      | Params                               |
-| ---------- | -------------------------------- | ------------------------------------ |
-| NotEmpty   | Check for value. Cannot be empty |                                      |
-| IsLong     |                                  |                                      |
-| IsShort    |                                  |                                      |
-| IsInt      |                                  |                                      |
-| IsByte     |                                  |                                      |
-| IsDecimal  |                                  |                                      |
-| IsDouble   |                                  |                                      |
-| IsFloat    |                                  |                                      |
-| IsString   |                                  | - size<br />- minSize<br />- maxSize |
-| IsBoolean  |                                  |                                      |
-| IsDateTime |                                  |                                      |
+| Name       | Description                        | Params                               |
+| ---------- | ---------------------------------- | ------------------------------------ |
+| NotEmpty   | Check for value. Cannot be empty   |                                      |
+| IsLong     | Check if data can be long type     |                                      |
+| IsShort    | Check if data can be short type    |                                      |
+| IsInt      | Check if data can be int type      |                                      |
+| IsByte     | Check if data can be byte type     |                                      |
+| IsDecimal  | Check if data can be decimal type  | - precision<br />- scale             |
+| IsDouble   | Check if data can be double type   |                                      |
+| IsFloat    | Check if data can be float type    |                                      |
+| IsString   | Check if data can be string type   | - size<br />- minSize<br />- maxSize |
+| IsBoolean  | Check if data can be boolean type  |                                      |
+| IsDateTime | Check if data can be datetime type |                                      |
 
 
 ### Input Spec
@@ -63,6 +63,8 @@ The file that defines the entire process.
 >   ]
 > }
 > ```
+
+**Data Source**
 
 Define the source of data. Application should then handle the ingestion accordingly
 
