@@ -20,6 +20,13 @@ Find it in *./Validation_Engine_Pipeline.drawio*
 
 ---
 
+To research:
+
+- Mapping from `[lang_specific | generic] <--> [databases - mssql, mysql, postgresql, etc.]`
+- Take a look at strategies taken at ORM such as EF, SQLAlchemy, Gorm, etc.
+
+Tentative:
+
 | Name       | Description                        | Params                               |
 | ---------- | ---------------------------------- | ------------------------------------ |
 | NotEmpty   | Check for value. Cannot be empty   |                                      |
