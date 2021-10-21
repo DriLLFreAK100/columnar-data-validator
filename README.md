@@ -20,27 +20,28 @@ Find it in *./Validation_Engine_Pipeline.drawio*
 
 ---
 
+Rules should cover destination column definitions + custom rules (optional)
+
+Destination specifics
+
+- [MSSQL](https://docs.microsoft.com/en-us/sql/t-sql/data-types/data-types-transact-sql?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
+- [PostgreSQL](https://www.postgresql.org/docs/9.5/datatype.html)
+
+Custom Rules:
+
+| Name         | Description                                             | Params                                                 |
+| ------------ | ------------------------------------------------------- | ------------------------------------------------------ |
+| NotEmpty     | Check for value. Cannot be empty                        |                                                        |
+| StringLength | Check string length                                     | - min: number<br />- max: number<br />- exact: number  |
+| SumOfColumns | Check that value holds computation from defined columns | - ordinal: number<br />- computationOrdinals: number[] |
+| etc...       |                                                         |                                                        |
+
+
 To research:
 
-- Mapping from `[lang_specific | generic] <--> [databases - mssql, mysql, postgresql, etc.]`
+- Mapping from `source:[lang_specific | generic] <--> destination:[databases - mssql, mysql, postgresql, etc.]`
 - Take a look at strategies taken at ORM such as EF, SQLAlchemy, Gorm, etc.
-
-Tentative:
-
-| Name       | Description                        | Params                               |
-| ---------- | ---------------------------------- | ------------------------------------ |
-| NotEmpty   | Check for value. Cannot be empty   |                                      |
-| IsLong     | Check if data can be long type     |                                      |
-| IsShort    | Check if data can be short type    |                                      |
-| IsInt      | Check if data can be int type      |                                      |
-| IsByte     | Check if data can be byte type     |                                      |
-| IsDecimal  | Check if data can be decimal type  | - precision<br />- scale             |
-| IsDouble   | Check if data can be double type   |                                      |
-| IsFloat    | Check if data can be float type    |                                      |
-| IsString   | Check if data can be string type   | - size<br />- minSize<br />- maxSize |
-| IsBoolean  | Check if data can be boolean type  |                                      |
-| IsDateTime | Check if data can be datetime type |                                      |
-
 
 ### Input Spec
 
@@ -50,16 +51,18 @@ Tentative:
 
 The file that defines the entire process.
 
+>
 > ```
 > {
 >   "id": string | Guid,
 >   "name": string,
+>   "destinationType": "MSSQL" | "MySQL" | "PostgreSQL" | etc...,
 >   "rulesets": [
 >     {
 >       "ordinal": number,
 >       "rules": [
 >         {
->           "rule": ValidationRuleName [NotEmpty | IsNumber | IsString | IsBoolean | IsDateTime...],
+>           "rule": ValidationRuleName [ Destination specific - (BIGINT | INT | etc...) | Custom - (NotEmpty | SumOfColumns | etc...)],
 > 	  "severity": "Warning" | "Error",
 > 	  "params"?: ValidationRuleParams
 >         },
@@ -92,7 +95,7 @@ Define the source of data. Application should then handle the ingestion accordin
 >       "field": string,
 >       "rules": [
 >         {
->           "rule": ValidationRuleName [NotEmpty | IsNumber | IsString | IsBoolean | IsDateTime...],
+>           "rule": ValidationRuleName [ Destination specific - (BIGINT | INT | etc...) | Custom - (NotEmpty | SumOfColumns | etc...)],
 >           "status": "Success" | "Warning" | "Error"
 >         },
 >         ...

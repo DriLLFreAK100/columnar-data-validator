@@ -1,6 +1,7 @@
 {
   "id": "d40c4968-b47e-4097-9d76-942bd7b5c66f",
   "name": "Sample Rule",
+  "destinationType": "MSSQL",
   "rulesets": [
     {
       "ordinal": 0,
@@ -10,15 +11,8 @@
           "severity": "Error"
         },
         {
-          "rule": "IsString",
+          "rule": "NVARCHAR(400)",
           "severity": "Error"
-        },
-        {
-          "rule": "IsString",
-          "severity": "Warning",
-          "params": {
-            "maxSize": 400
-          }
         }
       ]
     },
@@ -30,7 +24,7 @@
           "severity": "Error"
         },
         {
-          "rule": "IsLong",
+          "rule": "BIGINT",
           "severity": "Error"
         }
       ]
@@ -43,12 +37,8 @@
           "severity": "Error"
         },
         {
-          "rule": "IsString",
-          "severity": "Error",
-          "params": {
-            "minSize": 2,
-            "maxSize": 3
-          }
+          "rule": "NVARCHAR(3)",
+          "severity": "Error"
         }
       ]
     }
