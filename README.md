@@ -1,6 +1,6 @@
 # Columnar Data Validator
 
-This mini project is aimed at consolidating a generic Data Validation specification for columnar data, e.g. CSV, Xlsx, etc., open to be implemented in any language.
+This mini project is aimed at consolidating a generic Data Validation specification for columnar data files, e.g. CSV, Xlsx, etc., open to be implemented in any language.
 
 Below are the areas of emphasis:
 
@@ -76,12 +76,13 @@ The file that defines the entire process.
 
 **Data Source**
 
-Define the source of data. Application should then handle the ingestion accordingly
+Define the source of data. Application should then handle the ingestion accordingly.
 
 - Remote
   - Protocol - FTP, SFTP, HTTP, etc.
   - Url
 - Stream
+- Json
 
 ### Output Spec
 
