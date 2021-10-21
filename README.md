@@ -13,7 +13,9 @@ Below are the areas of emphasis:
 
 ---
 
-Find it in *./Validation_Engine_Pipeline.drawio*
+```
+![Flowchart](./Validation_Engine_Pipeline.svg)
+```
 
 
 ### Validation Rules
