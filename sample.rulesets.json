@@ -1,7 +1,6 @@
 {
   "id": "d40c4968-b47e-4097-9d76-942bd7b5c66f",
   "name": "Sample Rule",
-  "destinationType": "MSSQL",
   "prevalidations": [
     {
       "validator": "missingHeader",
